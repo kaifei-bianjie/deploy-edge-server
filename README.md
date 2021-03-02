@@ -31,12 +31,12 @@ spring:
 irita:
   sdk:
     caKeystore: /Users/zaizai/deploy/cb.JKS  # ca私钥的绝对路径
-    password: 123456
-    opbUri: https://opbningxia.bsngate.com:18602
-    chainId: wenchangchain
-    projectId: 7b3c53beda5c48c6b07d98804e156389
-    projectKey: 7a3b5660c0ae47e2be4f309050c1d304
-    contractAddr: iaa1cr8ard7tpvzf3g8n5llegc0fd92uuxeeuzt4s6
+    password: xxx
+    opbUri: xxx
+    chainId: xxx
+    projectId: xxx
+    projectKey: xxx
+    contractAddr: xxx
   
 # pdf图片插入的位置
 pdf:
