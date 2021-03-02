@@ -49,3 +49,69 @@ digest:
 ```
 
 ## 4 表authorization 需要插入数据(app_key and app_secret)
+
+# 使用 docker 部署
+
+```Dockerfile
+FROM openjdk:11
+
+ARG environment
+ENV springEnv = $environment
+
+ADD ./target/edge-server-0.1.jar edge-server.jar
+ENTRYPOINT java -jar edge-server.jar $springEnv
+```
+
+编写docker-compose.yml，当然也可以使用docker run 加参数运行
+
+```yaml
+version: "3.7"
+
+services:
+  edge-server:
+    build:
+      context: ./
+      args:
+        environment: --spring.config.additional-location=/app/my.yml
+    ports:
+      - 8080:8080
+    volumes:
+      - /Users/zaizai/deploy:/app
+```
+
+my.yml 如下
+```yaml
+server:
+  port: 8088
+  
+# 配置数据库连接
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://xxxx:3306/edge-server?useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  
+# 配置irita-sdk
+irita:
+  sdk:
+    caKeystore: app/cb.JKS
+    password: xxx
+    opbUri: xxx
+    chainId: xxx
+    projectId: xxx
+    projectKey: xxx
+    contractAddr: xxx
+  
+# pdf图片插入的位置
+pdf:
+  mosaic:
+    location: 0
+  
+# 摘要过期时间
+digest:
+  expireTime: 60000 #60000: 1min 6000000: 100min
+```
