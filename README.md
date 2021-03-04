@@ -7,15 +7,17 @@
 ## 3 运行启动命令
 
 my.yml：外部的springboot配置文件
+
 ```shell
 java -jar edge-server.jar --spring.config.additional-location=/Users/zaizai/deploy/my.yml 
 ```
 
 外部配置文件e.g
+
 ```yaml
 server:
   port: 8088
-  
+
 # 配置数据库连接
 spring:
   jpa:
@@ -26,29 +28,36 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
-  
+
 # 配置irita-sdk
 irita:
   sdk:
-    caKeystore: /Users/zaizai/deploy/cb.JKS  # ca私钥的绝对路径
+    caKeystore: /Users/zaizai/deploy/cb.JKS  # hash管理员ca私钥的绝对路径
     password: xxx
     opbUri: xxx
     chainId: xxx
     projectId: xxx
     projectKey: xxx
     contractAddr: xxx
-  
+
 # pdf图片插入的位置
 pdf:
   mosaic:
     location: 0
-  
+
 # 摘要过期时间
 digest:
   expireTime: 60000 #60000: 1min 6000000: 100min
 ```
 
 ## 4 表authorization 需要插入数据(app_key and app_secret)
+
+e.g 插入一行 app_key=root,app_secret=123456
+
+```sql
+INSERT INTO authorization (app_key, app_secret, create_at, status, update_at)
+VALUES ('test', '123456', null, null, null);
+```
 
 # 使用 docker 部署
 
@@ -80,10 +89,11 @@ services:
 ```
 
 my.yml 如下
+
 ```yaml
 server:
   port: 8088
-  
+
 # 配置数据库连接
 spring:
   jpa:
@@ -94,7 +104,7 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
-  
+
 # 配置irita-sdk
 irita:
   sdk:
@@ -105,12 +115,12 @@ irita:
     projectId: xxx
     projectKey: xxx
     contractAddr: xxx
-  
+
 # pdf图片插入的位置
 pdf:
   mosaic:
     location: 0
-  
+
 # 摘要过期时间
 digest:
   expireTime: 60000 #60000: 1min 6000000: 100min
