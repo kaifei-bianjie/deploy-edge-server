@@ -48,6 +48,10 @@ pdf:
 # 摘要过期时间
 digest:
   expireTime: 60000 #60000: 1min 6000000: 100min
+
+qrcode: # 二维码的长和宽，单位（px）不用填
+  width: 200
+  height: 200
 ```
 
 ## 4 表authorization 需要插入数据(app_key and app_secret)
