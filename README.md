@@ -28,6 +28,10 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 3MB
+      max-request-size: 3MB # 上传大小限制
 
 # 配置irita-sdk
 irita:
@@ -108,6 +112,10 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 3MB
+      max-request-size: 3MB
 
 # 配置irita-sdk
 irita:
