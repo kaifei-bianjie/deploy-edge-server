@@ -39,6 +39,7 @@ irita:
     caKeystore: /Users/zaizai/deploy/cb.JKS  # hash管理员ca私钥的绝对路径
     password: xxx
     opbUri: xxx
+    grpcAddr: https://opbningxia.bsngate.com:18603
     chainId: xxx
     projectId: xxx
     projectKey: xxx
@@ -123,6 +124,7 @@ irita:
     caKeystore: app/cb.JKS
     password: xxx
     opbUri: xxx
+    grpcAddr: https://opbningxia.bsngate.com:18603
     chainId: xxx
     projectId: xxx
     projectKey: xxx
